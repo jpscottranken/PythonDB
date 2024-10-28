@@ -1,0 +1,210 @@
+Character	- Anything on the keyboard
+
+Field (column, attribute) -	One or more related characters
+
+Record (rows, tuple) - One or more related fields
+
+Table - One or more related records
+
+Database - One or more related tables
+
+Primary Key - Unintelligible, unique record identifier
+
+Foreign Key - 
+
+Family, Friends
+familyId, ssn, firstName, middleInitial, lastName, address, city, stateAbbr, zip, phone
+friendId, ssn, firstName, middleInitial, lastName, address, city, stateAbbr, zip, phone
+
+States
+stateID
+stateAbbr
+stateName
+
+CREATE new database familyAndFriends
+
+CREATE DATABASE familyAndFriends
+
+USE familyAndFriends			(Make the database active)
+
+Schema for the family table
+CREATE TABLE family (  
+	familyId	INT			 NOT NULL AUTOINCREMENT, 
+	ssn			VARCHAR (11) NOT NULL,
+	firstName	VARCHAR (20) NOT NULL, 
+	middleInit  CHAR (1)		 NULL,
+	lastName	VARCHAR (20) NOT NULL,  
+	address		VARCHAR (50) NOT NULL,
+	city		VARCHAR (25) NOT NULL,
+	state		CHAR (2)	 NOT NULL,
+	zip			VARCHAR (10) NOT NULL,
+	cellPhone   VARCHAR (15)     NULL,  
+	PRIMARY KEY (familyId)  
+);  
+
+Family
+1, "111-22-3333", "Jeffrey","P", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+2, "111-33-2222", "Sandra", "K", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+3, "111-33-4444", "Taylor", "F", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+4, "111-44-5555", "Kenzie", "M", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+5, "111-55-6666", "Chloe",  "J", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+
+INSERT INTO family (ssn, firstName, middleInit, lastName, 
+					address, city state, zip, cellPhone)
+VALUES (
+	("111-22-3333", "Jeffrey","P", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"),
+	("111-33-2222", "Sandra", "K", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"),
+	("111-33-4444", "Taylor", "F", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"),
+	("111-44-5555", "Kenzie", "M", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"),
+	("111-55-6666", "Chloe",  "J", "Scott", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675")
+
+);
+
+"See" (view) all Family records:
+
+SELECT * FROM family
+
+Schema for the friends table
+CREATE TABLE friends (  
+	friendId 	INT			 NOT NULL AUTOINCREMENT, 
+	ssn			VARCHAR (11) NOT NULL,
+	firstName	VARCHAR (20) NOT NULL, 
+	middleInit  CHAR (1)		 NULL,
+	lastName	VARCHAR (20) NOT NULL,  
+	address		VARCHAR (50) NOT NULL,
+	city		VARCHAR (25) NOT NULL,
+	state		CHAR (2)	 NOT NULL,
+	zip			VARCHAR (10) NOT NULL,
+	cellPhone   VARCHAR (15)     NULL,  
+	PRIMARY KEY (friendId)  
+);  
+
+Friends
+1, "222-33-4444", "Gerald", "P", "Jones", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+2, "333-44-5555", "Brian",  "L", "King",  "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"
+
+INSERT INTO friends (ssn, firstName, middleInit, lastName, 
+					address, city state, zip, cellPhone)
+VALUES (
+	("222-33-4444", "Gerald", "P", "Jones", "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675"),
+	("333-44-5555", "Brian",  "L", "King",  "755 Parr Rd", "Wentzville", "MO", 63367, "314-286-3675")
+
+);
+
+"See" (view) all friends records:
+
+SELECT * FROM friends
+
+"See" (view) all friend records firstName and lastName only:
+
+SELECT firstName, lastName FROM friends
+
+
+Schema for the states table
+CREATE TABLE family (  
+	stateId 	INT			 NOT NULL AUTOINCREMENT,
+	stateName	VARCHAR (20) NOT NULL,
+	stateAbbr	CHAR (2)	 NOT NULL,
+	PRIMARY KEY (stateId)  
+); 
+
+INSERT INTO states (stateName)
+VALUES (
+	("Alabama",			"AL"),
+	("Alaska",			"AK"),
+	"Arizona",			"AZ"),
+	"Arkansas",			"AR"),
+	"California",		"CA"),
+	"Colorado",			"CO"),
+	"Connecticut",		"CT"),
+	"Delaware",			"DE"),
+	"Florida",			"FL"),
+	"Georgia",			"GA"),
+	"Hawaii",			"HI"),
+	"Idaho",			"ID"),
+	"Illinois",			"IL"),
+	"Indiana",			"IN"),
+	"Iowa",				"IA"),
+	"Kansas",			"KS"),
+	"Kentucky",			"KY"),
+	"Louisiana",		"LA"),
+	"Maine",			"ME"),
+	"Maryland",			"MD"),
+	"Massachusetts",	"MA"),
+	"Michigan",			"MI"),
+	"Minnesota",		"MN"),
+	"Mississippi",		"MS"),
+	"Missouri",			"MO"),
+	"Montana",			"MT"),
+	"Nebraska",			"NE"),
+	"Nevada",			"NV"),
+	"New Hampshire",	"NH"),
+	"New Jersey",		"NJ"),
+	"New Mexico",		"NM"),
+	"New York",			"NY"),
+	"North Carolina",	"NC"),
+	"North Dakota",		"ND"),
+	"Ohio",				OH"),
+	"Oklahoma",			"OK"),
+	"Oregon",			"OR"),
+	"Pennsylvania",		"PA"),
+	"Rhode Island",		"RI"),
+	"South Carolina",	"SC"),
+	"South Dakota",		"SD"),
+	"Tennessee",		"TN"),
+	"Texas",			"TX"),
+	"Utah",				"UT"),
+	"Vermont",			"VT"),
+	"Virginia",			"VA"),
+	"Washington",		"WA"),
+	"West Virginia",	"WV"),
+	"Wisconsin",		"WI"),
+	"Wyoming",			"WY")
+);
+
+States
+1, "AK", "Alaska",
+2, "AR, "Arkansas",
+...
+49, "WV", "West Virginia",
+50, "WI", "Wisonsin"
+
+Schools
+schoolID
+schoolName
+
+Data - Unprocessed information. May/may not make sense to all readers
+
+Information - Processed data. Should make sense to all readers
+
+1:1	- One to one. Never mandatory
+
+employeeID, firstName, middleInitial, lastName, address, city, state, zip, cellPhone,
+			department, salary, workPhone, workEmail
+
+EmployeesWorkInfo
+employeeID, firstName, middleInitial, lastName, address, city, state, zip, cellPhone
+
+EmployeesPersonalInfo
+employeeId, department, salary, workPhone, workEmail
+
+1:M - One to many. Customers, Orders. Every 1 customer has 0 or more orders
+
+M:N - Many to many. No fields in common between two tables.
+	  So, create a third table (join or junction table) with
+	  the primary keys of the other two tables as the concatenated
+	  primary key of the third table
+
+CRUD - 	Create	a new record in a database table or a new table in a database
+		Read	an existing record(s) in a database table, but not change data
+		Update	an existing record(s) in a database table, and change the data
+		Delete	an existing record(s) in a database table
+
+Data Manipulation Language (DML) works with database data.
+								 Allows you to insert (Create), select (Read),
+								 update (Update) and delete (Delete) database
+								 data.
+
+Data Definition   Language (DDL) works with database schema (setup)
+								 Allow you to create, alter (update), and
+								 drop (delete) database schema
